@@ -1,37 +1,24 @@
-#ifndef HUFFMAN_TREE_H
-#define HUFFMAN_TREE_H
-
+#pragma once
+#include "HuffmanNode.h"
 #include <unordered_map>
 #include <string>
-#include "../models/HuffmanNode.h"
-#include "../structures/MinHeap.h"
 
 class HuffmanTree {
 private:
     HuffmanNode* root;
+    std::unordered_map<char, std::string> codes;
 
-    void generateCodes(HuffmanNode* node, const std::string& path,
-                       std::unordered_map<char, std::string>& codes) const;
-
-    void serializeHelper(HuffmanNode* node, std::string& out) const;
-    HuffmanNode* deserializeHelper(const std::string& data, int& index);
+    void buildCodes(HuffmanNode* node, const std::string& code);
 
 public:
-    HuffmanTree(const std::unordered_map<char, int>& freqMap);
- 
     HuffmanTree() : root(nullptr) {}
+    HuffmanTree(const std::unordered_map<char,int>& freqMap);
 
-    HuffmanNode* getRoot() const;
+    HuffmanNode* getRoot() { return root; }
+    std::unordered_map<char, std::string> getCodes() { return codes; }
 
-    std::unordered_map<char, std::string> getCodes() const;
-
-    void printTree() const;
-
-    // NEW: Required for file saving
-    std::string serializeTree() const;
-
-    // NEW: Required during decompression
+    std::string serializeTree();
     void deserializeTree(const std::string& data);
-};
 
-#endif
+    char decodeNextBit(int bit, HuffmanNode*& current);
+};

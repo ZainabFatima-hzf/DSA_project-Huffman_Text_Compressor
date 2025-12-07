@@ -1,0 +1,11 @@
+hello huffman
+this is a test
+Huffman coding is a lossless data compression algorithm. 
+It assigns variable-length codes to input characters, 
+with shorter codes assigned to more frequent characters. 
+
+This is a test file for the Huffman Text Compressor project. 
+We will use it to check if our compressor and decompressor work correctly. 
+
+Feel free to add more text to increase the file size and test compression efficiency. 
+The more data we add, the better we can see the compression performance.

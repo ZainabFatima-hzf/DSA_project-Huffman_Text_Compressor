@@ -1,20 +1,10 @@
-#ifndef HUFFMAN_NODE_H
-#define HUFFMAN_NODE_H
+#pragma once
 
-class HuffmanNode {
-public:
-    char character;       // character stored (valid only in leaf nodes)
-    int frequency;        // frequency or combined frequency
-    HuffmanNode* left;    // left child
-    HuffmanNode* right;   // right child
+struct HuffmanNode {
+    char data;
+    int freq;
+    HuffmanNode* left;
+    HuffmanNode* right;
 
-    // Constructor for leaf node
-    HuffmanNode(char ch, int freq);
-
-    // Constructor for internal node
-    HuffmanNode(HuffmanNode* leftNode, HuffmanNode* rightNode);
-
-    bool isLeaf() const;
+    HuffmanNode(char d, int f = 0) : data(d), freq(f), left(nullptr), right(nullptr) {}
 };
-
-#endif
