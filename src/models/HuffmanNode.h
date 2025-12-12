@@ -1,10 +1,15 @@
 #pragma once
 
 struct HuffmanNode {
-    char data;
-    int freq;
+    char character;
+    int frequency;
     HuffmanNode* left;
     HuffmanNode* right;
 
-    HuffmanNode(char d, int f = 0) : data(d), freq(f), left(nullptr), right(nullptr) {}
+    // isLeaf() function declaration
+    bool isLeaf() const;
+
+    // Update constructor
+    HuffmanNode(char d, int f = 0) : character(d), frequency(f), left(nullptr), right(nullptr) {}
+
 };

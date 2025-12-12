@@ -9,28 +9,17 @@ private:
     int bitCount;
 
 public:
-    BitsStreamWriter(const std::string& filename) : buffer(0), bitCount(0) {
-        fout.open(filename, std::ios::binary | std::ios::app);
-    }
+    // Constructor declaration
+    // The implementation (fout.open, buffer = 0, etc.) must be in the .cpp file.
+    BitsStreamWriter(const std::string& filename);
 
-    void writeBit(int bit) {
-        buffer <<= 1;
-        buffer |= (bit & 1);
-        bitCount++;
-        if (bitCount == 8) flush();
-    }
+    // Method declarations (prototypes)
+    void writeBit(int bit);
+    void writeBits(const std::string& bits);
+    void flush();
 
-    void writeBits(const std::string& bits) {
-        for (char c : bits) writeBit(c - '0');
-    }
-
-    void flush() {
-        if (bitCount == 0) return;
-        buffer <<= (8 - bitCount);
-        fout.put(buffer);
-        buffer = 0;
-        bitCount = 0;
-    }
-
-    ~BitsStreamWriter() { flush(); fout.close(); }
+    // Destructor declaration
+    // The implementation (~BitsStreamWriter() { flush(); fout.close(); })
+    // must be in the .cpp file.
+    ~BitsStreamWriter();
 };

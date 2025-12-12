@@ -1,9 +1,8 @@
 #include "BitsStreamWriter.h"
 #include <iostream>
 
-
-
-BitStreamWriter::BitStreamWriter(const std::string &filename) {
+// CORRECTED: Constructor uses BitsStreamWriter::
+BitsStreamWriter::BitsStreamWriter(const std::string &filename) {
     fout.open(filename, std::ios::binary);
     if(!fout.is_open()) {
         std::cerr << "Error: Cannot open file " << filename << std::endl;
@@ -12,7 +11,8 @@ BitStreamWriter::BitStreamWriter(const std::string &filename) {
     bitCount = 0;
 }
 
-void BitStreamWriter::writeBit(int bit) {
+// CORRECTED: writeBit uses BitsStreamWriter::
+void BitsStreamWriter::writeBit(int bit) {
     buffer <<= 1;
     buffer |= (bit & 1); // set the last bit
     bitCount++;
@@ -24,13 +24,15 @@ void BitStreamWriter::writeBit(int bit) {
     }
 }
 
-void BitStreamWriter::writeBits(const std::string &bits) {
+// CORRECTED: writeBits uses BitsStreamWriter::
+void BitsStreamWriter::writeBits(const std::string &bits) {
     for(char b : bits) {
         writeBit(b - '0'); // convert '0'/'1' char to int
     }
 }
 
-void BitStreamWriter::flush() {
+// CORRECTED: flush uses BitsStreamWriter::
+void BitsStreamWriter::flush() {
     if(bitCount > 0) {
         buffer <<= (8 - bitCount); // pad remaining bits with 0
         fout.put(buffer);
@@ -39,16 +41,17 @@ void BitStreamWriter::flush() {
     }
 }
 
-BitStreamWriter::~BitStreamWriter() {
-    flush();       // flush any remaining bits
+// CORRECTED: Destructor uses BitsStreamWriter::
+BitsStreamWriter::~BitsStreamWriter() {
+    flush();        // flush any remaining bits
     fout.close();  // close the file
 }
 /*int main() {
-    BitStreamWriter writer("../test.huf"); // output in src/
+     BitsStreamWriter writer("../test.huf"); // output in src/
 
-    writer.writeBits("101");   // write 3 bits
-    writer.writeBits("1110");  // write 4 more bits
-    writer.flush();            // flush remaining bits
+     writer.writeBits("101");    // write 3 bits
+     writer.writeBits("1110");  // write 4 more bits
+     writer.flush();            // flush remaining bits
 
-    return 0;
+     return 0;
 }*/

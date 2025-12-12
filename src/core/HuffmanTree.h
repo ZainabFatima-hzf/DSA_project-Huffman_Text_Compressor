@@ -14,9 +14,8 @@ public:
     HuffmanTree() : root(nullptr) {}
     HuffmanTree(const std::unordered_map<char,int>& freqMap);
 
-    HuffmanNode* getRoot() { return root; }
-    std::unordered_map<char, std::string> getCodes() { return codes; }
-
+    HuffmanNode* getRoot() const { return root; }
+    const std::unordered_map<char, std::string>& getCodes() const;
     std::string serializeTree();
     void deserializeTree(const std::string& data);
 
