@@ -1,5 +1,5 @@
 #pragma once
-#include "HuffmanNode.h"
+#include "../models/HuffmanNode.h"
 #include <unordered_map>
 #include <string>
 

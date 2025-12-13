@@ -55,9 +55,8 @@ std::string HuffmanTree::serializeTree() {
     return result;
 }
 
-// Deserialize tree from string
-// Deserialize tree from string - CORRECTED VERSION
-void HuffmanTree::deserializeTree(const std::string& serialized) {
+// In HuffmanTree.cpp - CORRECTED
+void HuffmanTree::deserializeTree(const std::string& serialized) {  // Changed parameter name
     if (serialized.empty()) {
         root = nullptr;
         return;
@@ -66,20 +65,21 @@ void HuffmanTree::deserializeTree(const std::string& serialized) {
     size_t index = 0;
     std::function<HuffmanNode*()> build = [&]() -> HuffmanNode* {
         // Check bounds
-        if (index >= serialized.size()) {
+        if (index >= serialized.size()) {  // Use 'serialized' not 'character'
             std::cerr << "ERROR: Unexpected end of serialized string\n";
             return nullptr;
         }
 
         // Check for null marker
-        if (serialized[index] == '#') {
+        if (serialized[index] == '#') {   // Use 'serialized' not 'character'
             index++;
             return nullptr;
         }
 
         // Create node with character
-        HuffmanNode* node = new HuffmanNode(serialized[index++]);
-
+        // Line 80 - Make it unambiguous:
+        char nodeChar = serialized[index++];
+        HuffmanNode* node = new HuffmanNode(nodeChar, 0); // Explicitly use 2-parameter constructor
         // Recursively build left and right subtrees
         node->left = build();
         node->right = build();
