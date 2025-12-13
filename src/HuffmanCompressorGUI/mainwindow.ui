@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>679</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(0, 0, 0);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLineEdit" name="lineEdit_filePath">
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(170, 0, 0); 
+      color: white;
+      font-weight: ;
+      font-size: 16px;
+     padding:8px 24px;
+      border-radius: 8px;
+      border: 2px solid #219653;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="selectFileButton">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 127, 0); 
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+     padding:8px 24px;
+      border-radius: 8px;
+      border: 2px solid #219653;</string>
+      </property>
+      <property name="text">
+       <string>Select input file</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="compressButton">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 127, 0); 
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+     padding: 8px 24px;
+      border-radius: 8px;
+      border: 2px solid #219653;</string>
+      </property>
+      <property name="text">
+       <string>Compress(build tree)</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="decompressButton">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 127, 0); 
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+     padding: 8px 24px;
+      border-radius: 8px;
+      border: 2px solid #219653;</string>
+      </property>
+      <property name="text">
+       <string>Decompress</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTextEdit" name="textEdit_status">
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(202, 202, 202); 
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+     padding:8px 24px;
+      border-radius: 8px;
+      border: 2px solid #219653;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_results">
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(170, 0, 0); 
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+     padding:8px 24px;
+      border-radius: 8px;
+      border: 2px solid #219653;</string>
+      </property>
+      <property name="title">
+       <string>Result:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_originalSize">
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(170, 0, 0); 
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+     padding:8px 10px;
+      border-radius: 8px;
+      border: 2px solid #219653;</string>
+      </property>
+      <property name="text">
+       <string>Actual size:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_compressedSize">
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(170, 0, 0); 
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+     padding:8px 10px;
+      border-radius: 8px;
+      border: 2px solid #219653;</string>
+      </property>
+      <property name="text">
+       <string>After Compression:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="showTreeButton">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 127, 0); 
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+     padding: 8px 24px;
+      border-radius: 8px;
+      border: 2px solid #219653;</string>
+      </property>
+      <property name="text">
+       <string>Visualize Tree</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
