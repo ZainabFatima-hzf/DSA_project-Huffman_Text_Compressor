@@ -74,11 +74,14 @@ bool Decompressor::decompressFile(const std::string &inputFile, const std::strin
 
     // Check if file has enough data
     std::streampos currentPos = fin.tellg();
-    if (fileSize < currentPos + treeSize) {
-        std::cerr << "ERROR: File too small for tree data. Need " << treeSize
-                  << " bytes, have " << (fileSize - currentPos) << " bytes" << std::endl;
-        return false;
-    }
+
+if (fileSize < static_cast<size_t>(currentPos) + static_cast<size_t>(treeSize)) {
+    std::cerr << "ERROR: File too small for tree data. Need "
+              << treeSize << " bytes, have "
+              << (fileSize - static_cast<size_t>(currentPos)) << " bytes" << std::endl;
+    return false;
+}
+
 
     // Step 3: Read serialized tree
     std::string serializedTree(treeSize, '\0');

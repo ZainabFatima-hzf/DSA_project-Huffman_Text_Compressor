@@ -3,7 +3,6 @@
 ## Overview
 This project implements a **Huffman Text Compressor and Decompressor** in C++. It compresses text files into `.huf` format using the Huffman coding algorithm and can decompress them back to the original text. The system demonstrates **file I/O, bit-level operations, and tree-based encoding**, making it a complete example of data compression algorithms.
 
----
 
 ## Features
 - Compress any text file to a `.huf` file using Huffman coding.
