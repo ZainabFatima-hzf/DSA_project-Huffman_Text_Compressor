@@ -110,7 +110,7 @@ bool Compressor::compressFile(const std::string &inputFile, const std::string &o
     std::cout << "DEBUG: Total bits written: " << totalBitsWritten << std::endl;
     std::cout << "DEBUG: Original size: " << inputData.size() << " bytes" << std::endl;
 
-    // Get compressed file size
+    // Get the compressed file size
     std::ifstream finCheck(outputFile, std::ios::binary | std::ios::ate);
     if (finCheck) {
         std::streamsize compressedSize = finCheck.tellg();

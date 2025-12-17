@@ -3,7 +3,7 @@
 
 #include <string>
 #include <unordered_map>
-// Include necessary headers for the types used:
+// Include the necessary headers for the types used:
 #include "../utils/BitsStreamWriter.h"
 #include "../core/HuffmanTree.h"
 #include "../models/HuffmanNode.h" // Required for the getTreeRoot() return type
